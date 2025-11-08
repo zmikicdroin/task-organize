@@ -1,0 +1,11 @@
+services:
+  task-organize:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./static/uploads:/app/static/uploads
+      - ./photos_data.json:/app/photos_data.json
+    environment:
+      - FLASK_ENV=production
+    restart: unless-stopped
